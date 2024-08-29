@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "*"
+uvicorn = "*"
+sqlalchemy = "*"
+alembic = "*"
+psycopg2-binary = "*"
+sqlalchemy-utils = "*"
+passlib = "*"
+bcrypt = "*"
+python-jose = "*"
+
+[dev-packages]
+pytest = "*"
+httpx = "*"
+pytest-mock = "*"
+
+[requires]
+python_version = "3.12"
+
+[scripts]
+test = "pytest app/tests -v --disable-warnings --maxfail=1"
