@@ -3,8 +3,7 @@ from app.api.common.utils import read_token
 from app.dao.boards import BoardsDAO
 
 
-def create_new_board(db, body, token):
-    current_user = read_token(token)
+def create_new_board(db, body, current_user):
     board_model = boards_helper.create_new_board(body, current_user.get("id"))
 
     _boards = BoardsDAO(db)
