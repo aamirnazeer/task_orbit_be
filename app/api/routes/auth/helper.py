@@ -11,7 +11,7 @@ def create_new_user(body):
         role=body.role,
         email=body.email,
         username=body.username,
-        hashed_password=bcrypt_context.hash(body.password)
+        hashed_password=bcrypt_context.hash(body.password),
     )
     return user_model
 

@@ -17,5 +17,5 @@ ALLOWED_HOSTS: str = os.getenv(
     default="",
 )
 SQLALCHEMY_DATABASE_URL = os.getenv("SQLALCHEMY_DATABASE_URL", "")
-SECRET_KEY = os.getenv("SECRET_KEY", '')
-ALGORITHM = 'HS256'
+SECRET_KEY = os.getenv("SECRET_KEY", "")
+ALGORITHM = "HS256"

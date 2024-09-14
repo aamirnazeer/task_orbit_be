@@ -5,7 +5,7 @@ import uuid
 
 
 class Users(Base):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     uuid = Column(UUID, default=uuid.uuid4)
@@ -19,4 +19,6 @@ class Users(Base):
     is_active = Column(Boolean, nullable=False, default=True)
     is_deleted = Column(Boolean, nullable=False, default=False)
     created_on = Column(Integer, nullable=False, default=int(time()))
-    last_updated_on = Column(Integer, nullable=False, default=int(time()), onupdate=int(time()))
+    last_updated_on = Column(
+        Integer, nullable=False, default=int(time()), onupdate=int(time())
+    )

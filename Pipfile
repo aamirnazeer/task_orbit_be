@@ -18,9 +18,11 @@ python-jose = "*"
 pytest = "*"
 httpx = "*"
 pytest-mock = "*"
+black = "*"
 
 [requires]
 python_version = "3.12"
 
 [scripts]
 test = "pytest app/tests -v --disable-warnings --maxfail=1"
+format = "black ."

@@ -6,7 +6,7 @@ import uuid
 
 
 class Boards(Base):
-    __tablename__ = 'boards'
+    __tablename__ = "boards"
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     uuid = Column(UUID, default=uuid.uuid4)
@@ -15,4 +15,6 @@ class Boards(Base):
     is_active = Column(Boolean, nullable=False, default=True)
     is_deleted = Column(Boolean, nullable=False, default=False)
     created_on = Column(Integer, nullable=False, default=int(time()))
-    last_updated_on = Column(Integer, nullable=False, default=int(time()), onupdate=int(time()))
+    last_updated_on = Column(
+        Integer, nullable=False, default=int(time()), onupdate=int(time())
+    )

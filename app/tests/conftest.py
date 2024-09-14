@@ -30,9 +30,11 @@ def test_db_dependency():
         db.close()
 
 
-def mock_verify_token(token: Annotated[HTTPAuthorizationCredentials, Depends(security)]):
-    if not token.credentials == 'mocked_token':
-        raise HTTPException(status_code=401, detail='Invalid token')
+def mock_verify_token(
+    token: Annotated[HTTPAuthorizationCredentials, Depends(security)]
+):
+    if not token.credentials == "mocked_token":
+        raise HTTPException(status_code=401, detail="Invalid token")
     return token
 
 
@@ -46,9 +48,8 @@ def client():
 
 
 def pytest_configure():
-    os.environ["ENV"] = 'test'
+    os.environ["ENV"] = "test"
 
 
 def pytest_unconfigure():
     command.downgrade(Config("alembic.ini"), "base")
-

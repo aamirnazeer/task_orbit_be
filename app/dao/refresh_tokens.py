@@ -13,7 +13,9 @@ class RefreshTokensDAO:
         self.db.commit()
 
     def get_refresh_token(self, token: str):
-        token = self.db.query(RefreshTokens).filter(RefreshTokens.token == token).first()
+        token = (
+            self.db.query(RefreshTokens).filter(RefreshTokens.token == token).first()
+        )
         return token
 
     def delete_token(self, user_id):

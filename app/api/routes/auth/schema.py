@@ -26,7 +26,7 @@ class CreateNewUser(BaseModel):
                 "last_name": "doe",
                 "password": "password123",
                 "role": "user",
-                "phone_number": "999999999"
+                "phone_number": "999999999",
             }
         }
     }
@@ -44,4 +44,3 @@ class SignIn(BaseModel):
             }
         }
     }
-

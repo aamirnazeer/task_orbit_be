@@ -26,12 +26,7 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 metadata = MetaData()
 
-for base in (
-        UserBase,
-        BoardsBase,
-        CardsBase,
-        RefreshTokensBase
-):
+for base in (UserBase, BoardsBase, CardsBase, RefreshTokensBase):
     for table in base.metadata.tables.values():
         table.to_metadata(metadata)
 
@@ -42,8 +37,10 @@ target_metadata = metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-if os.getenv("ENV") == 'test':
-    config.set_main_option("sqlalchemy.url", os.getenv("SQLALCHEMY_DATABASE_URL_TEST", ""))
+if os.getenv("ENV") == "test":
+    config.set_main_option(
+        "sqlalchemy.url", os.getenv("SQLALCHEMY_DATABASE_URL_TEST", "")
+    )
 else:
     config.set_main_option("sqlalchemy.url", os.getenv("SQLALCHEMY_DATABASE_URL", ""))
 
@@ -51,7 +48,10 @@ if not database_exists(os.getenv("SQLALCHEMY_DATABASE_URL", "")):
     create_database(os.getenv("SQLALCHEMY_DATABASE_URL", ""))
     print("SQLALCHEMY_DATABASE_URL created")
 
-if not database_exists(os.getenv("SQLALCHEMY_DATABASE_URL_TEST", "")) and os.getenv("ENV") == 'local':
+if (
+    not database_exists(os.getenv("SQLALCHEMY_DATABASE_URL_TEST", ""))
+    and os.getenv("ENV") == "local"
+):
     create_database(os.getenv("SQLALCHEMY_DATABASE_URL_TEST", ""))
     print("SQLALCHEMY_DATABASE_URL_TEST created")
 
@@ -94,9 +94,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

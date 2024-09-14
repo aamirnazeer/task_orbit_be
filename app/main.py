@@ -11,15 +11,17 @@ def get_application() -> FastAPI:
         title=env.PROJECT_NAME,
         debug=env.DEBUG,
         version=env.VERSION,
-        openapi_url=f"{constants.API_PREFIX}/openapi.json"
-        if env.ENV in ("local", "dev")
-        else None,
-        docs_url=f"{constants.API_PREFIX}/docs"
-        if env.ENV in ("local", "dev")
-        else None,
-        redoc_url=f"{constants.API_PREFIX}/redoc"
-        if env.ENV in ("local", "dev")
-        else None,
+        openapi_url=(
+            f"{constants.API_PREFIX}/openapi.json"
+            if env.ENV in ("local", "dev")
+            else None
+        ),
+        docs_url=(
+            f"{constants.API_PREFIX}/docs" if env.ENV in ("local", "dev") else None
+        ),
+        redoc_url=(
+            f"{constants.API_PREFIX}/redoc" if env.ENV in ("local", "dev") else None
+        ),
     )
 
     application.add_middleware(

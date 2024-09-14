@@ -4,7 +4,7 @@ import uuid
 
 
 class Cards(Base):
-    __tablename__ = 'cards'
+    __tablename__ = "cards"
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     uuid = Column(UUID, default=uuid.uuid4)

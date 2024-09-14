@@ -5,7 +5,7 @@ from sqlalchemy import Column, Integer, String
 
 
 class RefreshTokens(Base):
-    __tablename__ = 'refresh_tokens'
+    __tablename__ = "refresh_tokens"
 
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     user_id = Column(Integer, nullable=False)

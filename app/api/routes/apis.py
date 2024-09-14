@@ -10,4 +10,4 @@ async def app_health_check():
     return {"data": "You are accessing task-orbit API"}
 
 
-router.include_router(auth_handler.router, prefix='/auth', tags=['/auth'])
+router.include_router(auth_handler.router, prefix="/auth", tags=["/auth"])

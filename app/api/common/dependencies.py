@@ -20,4 +20,4 @@ def get_db():
 db_dependency = Annotated[Session, Depends(get_db)]
 token_dependency = Annotated[HTTPAuthorizationCredentials, Depends(verify_token)]
 
-bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
+bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
