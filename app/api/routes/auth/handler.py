@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from fastapi.security import HTTPBearer
 from starlette import status
 
 from app.api.common.dependencies import db_dependency, token_dependency
@@ -7,7 +6,6 @@ from app.api.routes.auth import schema as auth_schema
 from app.api.routes.auth import service as auth_service
 
 router = APIRouter()
-security = HTTPBearer()
 
 
 @router.post("/create-user", status_code=status.HTTP_201_CREATED)

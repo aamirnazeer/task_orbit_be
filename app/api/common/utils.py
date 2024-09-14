@@ -19,7 +19,7 @@ def create_access_token(created_user: Users, origin: str):
         "role": created_user.role,
         "origin": origin,
     }
-    expires = int(time()) + 60 * 5
+    expires = int(time()) + 60 * 60
     encode.update({"exp": expires})
     token = jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
     return token
