@@ -1,7 +1,5 @@
-from time import time
-
 from app.core.database import Base
-from sqlalchemy import Column, Integer, String, Boolean, UUID, ForeignKey
+from sqlalchemy import Column, Integer, String, UUID
 import uuid
 
 

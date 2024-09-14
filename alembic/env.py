@@ -26,7 +26,12 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 metadata = MetaData()
 
-for base in (UserBase, BoardsBase, CardsBase, RefreshTokensBase):
+for base in (
+        UserBase,
+        BoardsBase,
+        CardsBase,
+        RefreshTokensBase
+):
     for table in base.metadata.tables.values():
         table.to_metadata(metadata)
 
